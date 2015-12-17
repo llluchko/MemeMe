@@ -53,8 +53,16 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="3UE-xn-vAL">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="D43-aB-RSr"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="OEH-qK-8Be"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="D43-aB-RSr">
+                                            <connections>
+                                                <action selector="shareButtonPressed" destination="gyB-wK-KcM" id="t4U-Px-OgM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="OEH-qK-8Be">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="gyB-wK-KcM" id="uA5-ZX-Ihn"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -105,6 +113,8 @@
                         <outlet property="bottomTextField" destination="B0k-T6-muR" id="aBc-oH-CiV"/>
                         <outlet property="cameraButton" destination="zjm-5Z-1Y9" id="sZE-IF-bNy"/>
                         <outlet property="imagePickerView" destination="V84-Vn-gge" id="d4c-JS-H2w"/>
+                        <outlet property="navBar" destination="6kg-oO-LNf" id="zff-TC-UsW"/>
+                        <outlet property="toolbar" destination="Yat-Ot-I6g" id="vsf-ZB-IVM"/>
                         <outlet property="topTextField" destination="nk3-Ch-dt2" id="9k0-Xz-I5g"/>
                     </connections>
                 </viewController>

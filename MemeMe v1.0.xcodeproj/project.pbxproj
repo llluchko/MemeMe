@@ -13,6 +13,7 @@
 		695A7C761C1F5A53006D44B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695A7C751C1F5A53006D44B3 /* Main.storyboard */; };
 		695A7C781C1F5A7E006D44B3 /* MemeEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695A7C771C1F5A7E006D44B3 /* MemeEditorViewController.swift */; };
 		698B366A1C21F2BB002B8843 /* MemeMeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698B36691C21F2BB002B8843 /* MemeMeTextFieldDelegate.swift */; };
+		69FE3EBE1C23636600D0DDE1 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE3EBD1C23636600D0DDE1 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		695A7C751C1F5A53006D44B3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		695A7C771C1F5A7E006D44B3 /* MemeEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeEditorViewController.swift; sourceTree = "<group>"; };
 		698B36691C21F2BB002B8843 /* MemeMeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeMeTextFieldDelegate.swift; sourceTree = "<group>"; };
+		69FE3EBD1C23636600D0DDE1 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				695A7C6C1C1F5A11006D44B3 /* LaunchScreen.storyboard */,
 				695A7C6F1C1F5A11006D44B3 /* Info.plist */,
 				698B36691C21F2BB002B8843 /* MemeMeTextFieldDelegate.swift */,
+				69FE3EBD1C23636600D0DDE1 /* Meme.swift */,
 			);
 			path = "MemeMe v1.0";
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				695A7C641C1F5A11006D44B3 /* AppDelegate.swift in Sources */,
 				698B366A1C21F2BB002B8843 /* MemeMeTextFieldDelegate.swift in Sources */,
 				695A7C781C1F5A7E006D44B3 /* MemeEditorViewController.swift in Sources */,
+				69FE3EBE1C23636600D0DDE1 /* Meme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
