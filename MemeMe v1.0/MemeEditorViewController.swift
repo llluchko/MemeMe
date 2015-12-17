@@ -25,7 +25,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.subscribeToKeyboardNotifications()
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.unsubscribeToKeyboardNotifications()
     }
     
     func applyTextFieldAttributes(textField: UITextField) {
@@ -39,7 +44,36 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         textField.textAlignment = NSTextAlignment.Center
         textField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
     }
+    
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
 
+    func unsubscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if self.textFieldDelegate!.activeTextField === self.bottomTextField {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if self.textFieldDelegate!.activeTextField == self.bottomTextField {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+            self.textFieldDelegate!.activeTextField = nil
+        }
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.CGRectValue().height
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = image
