@@ -21,9 +21,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.applyTextFieldAttributes(self.topTextField)
-        self.applyTextFieldAttributes(self.bottomTextField)
-        self.textFieldDelegate = MemeMeTextFieldDelegate(topTextField: self.topTextField, bottomTextField: self.bottomTextField)
+        applyTextFieldAttributes(self.topTextField)
+        applyTextFieldAttributes(self.bottomTextField)
+        textFieldDelegate = MemeMeTextFieldDelegate(topTextField: self.topTextField, bottomTextField: self.bottomTextField)
     }
     
     override func viewWillAppear(animated: Bool) {
