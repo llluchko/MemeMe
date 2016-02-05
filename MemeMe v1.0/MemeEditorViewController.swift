@@ -85,7 +85,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         // Create the meme
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage!)
         // Add it to the memes array on the AppDelegate
-        let object = (UIApplication.sharedApplication().delegate)
+        let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
     }
