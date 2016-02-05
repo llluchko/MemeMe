@@ -28,7 +28,7 @@
         <scene sceneID="5pP-Fv-p74">
             <objects>
                 <navigationController title="Collection" id="VMJ-fV-tHy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="collection_60x60" selectedImage="collection_60x60" id="M9G-f1-kZ4"/>
+                    <tabBarItem key="tabBarItem" title="" image="collection_30x30" selectedImage="collection_30x30" id="M9G-f1-kZ4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iYO-SK-E35">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -45,7 +45,7 @@
         <scene sceneID="dMd-M3-6ei">
             <objects>
                 <navigationController title="Table" id="tUw-AK-rGT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="table_60x60" selectedImage="table_60x60" id="S7d-ez-7Is"/>
+                    <tabBarItem key="tabBarItem" title="" image="table_30x30" selectedImage="table_30x30" id="S7d-ez-7Is"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jPZ-Y3-oZO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -115,6 +115,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="flowLayout" destination="JsP-mT-zap" id="Lyg-eE-Pgl"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6uH-MY-7bc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -334,10 +337,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="collection_60x60" width="30" height="30"/>
-        <image name="table_60x60" width="30" height="30"/>
+        <image name="collection_30x30" width="15" height="15"/>
+        <image name="table_30x30" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qZV-Eo-gSs"/>
+        <segue reference="5TU-jI-OWc"/>
     </inferredMetricsTieBreakers>
 </document>
