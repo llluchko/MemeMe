@@ -9,5 +9,7 @@
 import UIKit
 
 class CustomMemeCell: UICollectionViewCell {
+    
     @IBOutlet weak var imageView: UIImageView!
+    
 }

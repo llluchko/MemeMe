@@ -9,21 +9,27 @@
 import UIKit
 
 class MemeDetailViewController: UIViewController {
+    
     @IBOutlet weak var imageView: UIImageView!
     var memeImage : UIImage? = nil
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
     override func viewDidLoad() {
-        self.imageView.image = memeImage
+        imageView.image = memeImage
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController!.tabBar.hidden = true
+        tabBarController!.tabBar.hidden = true
     }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.tabBarController!.tabBar.hidden = false
+        tabBarController!.tabBar.hidden = false
     }
+
 }
 

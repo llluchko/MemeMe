@@ -37,18 +37,26 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         unsubscribeToKeyboardNotifications()
     }
     
-    @IBAction func pickAnImageFromAlbum (sender: AnyObject) {
+    func pickAnImage(pickOption: Bool) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        if pickOption == true {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        else {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        }
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func pickAnImageFromAlbum (sender: AnyObject) {
+        let pickOption: Bool = true
+        pickAnImage(pickOption)
+    }
+    
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        presentViewController(imagePicker, animated: true, completion: nil)
+        let pickOption: Bool = false
+        pickAnImage(pickOption)
     }
     
     @IBAction func cancelButtonPressed(sender: AnyObject) {
@@ -130,7 +138,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func keyboardWillShow(notification: NSNotification) {
         if textFieldDelegate!.activeTextField === bottomTextField {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification) * -1
         }
     }
     
@@ -157,5 +165,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
 }
 

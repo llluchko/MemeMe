@@ -9,14 +9,17 @@
 import UIKit
 
 class MemeCollectionViewController: UICollectionViewController {
+    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     var memes : [Meme]  {
         let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return appdelegate.memes
     }
+    
     required init?(coder aDecoder:  NSCoder) {
         super.init(coder: aDecoder)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,12 +30,15 @@ class MemeCollectionViewController: UICollectionViewController {
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }
+    
     override func viewWillAppear(animated: Bool) {
-        self.collectionView!.reloadData()
+        collectionView!.reloadData()
     }
+    
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.memes.count
+        return memes.count
     }
+    
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CustomMemeCell", forIndexPath: indexPath) as! CustomMemeCell
         let meme = memes[indexPath.item]
@@ -41,10 +47,11 @@ class MemeCollectionViewController: UICollectionViewController {
     
         return cell
     }
+    
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let meme = self.memes[indexPath.row]
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("memeDetail") as! MemeDetailViewController
-        self.navigationController!.pushViewController(detailController, animated: true)
+        navigationController!.pushViewController(detailController, animated: true)
         detailController.memeImage = meme.memedImage
     }
     

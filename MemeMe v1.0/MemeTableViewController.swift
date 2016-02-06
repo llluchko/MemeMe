@@ -9,30 +9,37 @@
 import UIKit
 
 class MemeTableViewController: UITableViewController{
+    
     var memes: [Meme] {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return appDelegate.memes
     }
+    
     required init!(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView!.reloadData()
+        tableView!.reloadData()
     }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.memes.count
+        return memes.count
     }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell")!
         cell.imageView?.image = self.memes[indexPath.row].memedImage
         cell.textLabel!.text = self.memes[indexPath.row].topText + "..." + self.memes[indexPath.row].bottomText
         return cell
     }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let meme = self.memes[indexPath.row]
+        let meme = memes[indexPath.row]
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("memeDetail") as! MemeDetailViewController
-        self.navigationController!.pushViewController(detailController, animated: true)
+        navigationController!.pushViewController(detailController, animated: true)
         detailController.memeImage = meme.memedImage
     }
+    
 }

@@ -24,12 +24,10 @@ class MemeMeTextFieldDelegate: NSObject, UITextFieldDelegate {
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        if textField.text == "TOP" && textField == self.topTextField {
+        if textField.text == "TOP" || textField.text == "BOTTOM" {
             textField.text = ""
         }
-        else if textField.text == "BOTTOM" && textField == self.bottomTextField {
-            textField.text = ""
-        }
+
         self.activeTextField = textField
         
         return true
@@ -47,4 +45,5 @@ class MemeMeTextFieldDelegate: NSObject, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return textField.endEditing(true)
     }
+    
 }
