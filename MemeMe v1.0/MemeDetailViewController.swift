@@ -18,6 +18,7 @@ class MemeDetailViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editTapped")
         imageView.image = memeImage
     }
     
@@ -30,6 +31,12 @@ class MemeDetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         tabBarController!.tabBar.hidden = false
     }
+    
+//    func editTapped() {
+//        let storyboard = UIStoryboard (name: "Main", bundle: nil)
+//        let editVC = storyboard.instantiateViewControllerWithIdentifier("createMeme")as! MemeEditorViewController
+//        navigationController?.pushViewController(editVC, animated: true)
+//    }
 
 }
 

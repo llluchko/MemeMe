@@ -51,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				695A7C621C1F5A11006D44B3 /* MemeMe v2.0 */,
-				695A7C611C1F5A11006D44B3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,23 +60,25 @@
 				695A7C601C1F5A11006D44B3 /* MemeMe v2.0.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		695A7C621C1F5A11006D44B3 /* MemeMe v2.0 */ = {
 			isa = PBXGroup;
 			children = (
 				695A7C631C1F5A11006D44B3 /* AppDelegate.swift */,
+				69FE3EBD1C23636600D0DDE1 /* Meme.swift */,
 				695A7C771C1F5A7E006D44B3 /* MemeEditorViewController.swift */,
+				698B36691C21F2BB002B8843 /* MemeMeTextFieldDelegate.swift */,
+				695F54341C63B717000EDA81 /* MemeTableViewController.swift */,
+				695F54361C63B72B000EDA81 /* MemeCollectionViewController.swift */,
+				695F543A1C63D83D000EDA81 /* CustomMemeCell.swift */,
+				696EACA91C64D38900BFE6FE /* MemeDetailViewController.swift */,
+				695A7C611C1F5A11006D44B3 /* Products */,
 				695A7C751C1F5A53006D44B3 /* Main.storyboard */,
 				695A7C6A1C1F5A11006D44B3 /* Assets.xcassets */,
 				695A7C6C1C1F5A11006D44B3 /* LaunchScreen.storyboard */,
 				695A7C6F1C1F5A11006D44B3 /* Info.plist */,
-				698B36691C21F2BB002B8843 /* MemeMeTextFieldDelegate.swift */,
-				69FE3EBD1C23636600D0DDE1 /* Meme.swift */,
-				695F54341C63B717000EDA81 /* MemeTableViewController.swift */,
-				695F543A1C63D83D000EDA81 /* CustomMemeCell.swift */,
-				695F54361C63B72B000EDA81 /* MemeCollectionViewController.swift */,
-				696EACA91C64D38900BFE6FE /* MemeDetailViewController.swift */,
 			);
 			name = "MemeMe v2.0";
 			path = "MemeMe v1.0";

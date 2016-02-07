@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -143,7 +144,7 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="widthClass=compact">
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -207,26 +208,6 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0Yp-2S-WTo"/>
                                 </items>
                             </toolbar>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kg-oO-LNf">
-                                <rect key="frame" x="4" y="20" width="592" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="3gF-Uf-VLj"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem id="3UE-xn-vAL">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="D43-aB-RSr">
-                                            <connections>
-                                                <action selector="shareButtonPressed" destination="gyB-wK-KcM" id="t4U-Px-OgM"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="OEH-qK-8Be">
-                                            <connections>
-                                                <action selector="cancelButtonPressed:" destination="gyB-wK-KcM" id="uA5-ZX-Ihn"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nk3-Ch-dt2">
                                 <rect key="frame" x="20" y="112" width="560" height="30"/>
                                 <constraints>
@@ -243,6 +224,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kg-oO-LNf">
+                                <rect key="frame" x="4" y="20" width="592" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3gF-Uf-VLj"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="3UE-xn-vAL">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="D43-aB-RSr">
+                                            <connections>
+                                                <action selector="shareButtonPressed" destination="gyB-wK-KcM" id="Ido-Qy-I8l"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="OEH-qK-8Be">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="gyB-wK-KcM" id="uA5-ZX-Ihn"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -272,6 +273,7 @@
                         <outlet property="cameraButton" destination="zjm-5Z-1Y9" id="sZE-IF-bNy"/>
                         <outlet property="imagePickerView" destination="V84-Vn-gge" id="d4c-JS-H2w"/>
                         <outlet property="navBar" destination="6kg-oO-LNf" id="zff-TC-UsW"/>
+                        <outlet property="shareButton" destination="D43-aB-RSr" id="oid-PQ-6Ni"/>
                         <outlet property="toolbar" destination="Yat-Ot-I6g" id="vsf-ZB-IVM"/>
                         <outlet property="topTextField" destination="nk3-Ch-dt2" id="9k0-Xz-I5g"/>
                     </connections>
@@ -283,14 +285,13 @@
         <!--Meme Detail View Controller-->
         <scene sceneID="DAw-Yt-qG3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L8L-Zn-wEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="memeDetail" id="fQV-Zw-HZA" customClass="MemeDetailViewController" customModule="MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CPw-36-ULK"/>
                         <viewControllerLayoutGuide type="bottom" id="R1d-jD-E5Y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nse-NA-pdl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lC6-s0-Wsd">
@@ -310,10 +311,10 @@
                                 <exclude reference="lC6-s0-Wsd"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="dOA-Ye-3sZ"/>
                                 <exclude reference="M3p-Rh-LTd"/>
                                 <exclude reference="np1-NZ-fGV"/>
                                 <exclude reference="tLE-W7-Aav"/>
-                                <exclude reference="dOA-Ye-3sZ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -321,10 +322,10 @@
                                 <include reference="lC6-s0-Wsd"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="dOA-Ye-3sZ"/>
                                 <include reference="M3p-Rh-LTd"/>
                                 <include reference="np1-NZ-fGV"/>
                                 <include reference="tLE-W7-Aav"/>
-                                <include reference="dOA-Ye-3sZ"/>
                             </mask>
                         </variation>
                     </view>
@@ -332,6 +333,7 @@
                         <outlet property="imageView" destination="lC6-s0-Wsd" id="tbS-Ak-q1Z"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8L-Zn-wEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1492.5" y="485"/>
         </scene>

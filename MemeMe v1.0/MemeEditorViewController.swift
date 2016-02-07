@@ -1,6 +1,6 @@
 //
 //  MemeEditorViewController.swift
-//  MemeMe v1.0
+//  MemeMe v2.0
 //
 //  Created by Latchezar Mladenov on 12/14/15.
 //  Copyright © 2015 Latchezar Mladenov. All rights reserved.
@@ -12,18 +12,20 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     var memedImage: UIImage?
     var textFieldDelegate : MemeMeTextFieldDelegate? = nil
+    var meme: Meme?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyTextFieldAttributes(topTextField)
-        applyTextFieldAttributes(bottomTextField)
-        textFieldDelegate = MemeMeTextFieldDelegate(topTextField: topTextField, bottomTextField: self.bottomTextField)
+        textFieldDelegate = MemeMeTextFieldDelegate(topTextField: topTextField, bottomTextField: bottomTextField)
+        setupTextField("TOP", textField: topTextField)
+        setupTextField("BOTTOM", textField: bottomTextField)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -114,17 +116,21 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         toolbar.hidden = !toolbar.hidden
     }
     
-    func applyTextFieldAttributes(textField: UITextField) {
+    func setupTextField(string: String, textField: UITextField) {
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : -7.0
+            NSStrokeWidthAttributeName : -3
         ]
+        
+        let attributedString = NSAttributedString(string: string, attributes: memeTextAttributes)
+        textField.attributedText = attributedString
         textField.defaultTextAttributes = memeTextAttributes
-        textField.textAlignment = NSTextAlignment.Center
-        textField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+        // Text should be center-aligned
+        textField.textAlignment = .Center
     }
+
     
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
@@ -138,14 +144,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func keyboardWillShow(notification: NSNotification) {
         if textFieldDelegate!.activeTextField === bottomTextField {
-            view.frame.origin.y -= getKeyboardHeight(notification) * -1
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if textFieldDelegate!.activeTextField == bottomTextField {
             view.frame.origin.y += getKeyboardHeight(notification)
-            textFieldDelegate!.activeTextField = nil
         }
     }
     
