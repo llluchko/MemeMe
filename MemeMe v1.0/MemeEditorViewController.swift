@@ -19,10 +19,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var bottomTextField: UITextField!
     var memedImage: UIImage?
     var textFieldDelegate : MemeMeTextFieldDelegate? = nil
-    var meme: Meme?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // TO-DO: Edit meme functionality
         textFieldDelegate = MemeMeTextFieldDelegate(topTextField: topTextField, bottomTextField: bottomTextField)
         setupTextField("TOP", textField: topTextField)
         setupTextField("BOTTOM", textField: bottomTextField)
